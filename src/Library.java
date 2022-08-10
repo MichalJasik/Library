@@ -1,20 +1,15 @@
 public class Library {
     public static void main(String[] args) {
-        final String appName = "Bibloteka v0.1";
-        Book b1 = new Book();
+        Book b1 = new Book("W pustyni i w puszczy", "Henryk Sienkiewicz", 2010,
+                296, "Greg", "9788373271890");
+        Book b2 = new Book("Java. Efektywne programowanie. Wydanie II", "Joshua Bloch",
+                2009, 352, "Helion", "9788324620845");
+        Book b3 = new Book("SCJP Sun Certified Programmer for Java 6 Study Guide",
+                "Bert Bates, Katherine Sierra", 2008, 851,
+                "McGraw-Hill Osborne Media", "9780071591065");
 
-        b1.author = "Henryk Sienkiwicz";
-        b1.title = "W pustyni i w puszczy";
-        b1.page = 200;
-        b1.publisher = "Greg";
-        b1.isbn = "17273971";
-
-        String b1info = "Autor: " + b1.author +
-                "\tTytuł: " + b1.title +
-                "\tStron: " + b1.page +
-                "\tPublikacja: " + b1.publisher +
-                "\tisbn: " + b1.isbn;
-
-        System.out.println(b1info);
+        b1.getInfo();
+        b2.getInfo();
+        b3.getInfo();
     }
 }
