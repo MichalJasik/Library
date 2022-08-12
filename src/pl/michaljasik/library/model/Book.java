@@ -7,12 +7,13 @@ public class Book {
     private int page;
     private String publisher;
     private String isbn;
+
     public Book(String title, String author, int realiseDate, int page, String publisher, String isbn) {
-        this( title, author, realiseDate, page, publisher);
+        this(title, author, realiseDate, page, publisher);
         this.isbn = isbn;
     }
 
-    public Book(String title, String author, int realiseDate, int page, String publisher){
+    public Book(String title, String author, int realiseDate, int page, String publisher) {
         this.title = title;
         this.author = author;
         this.realiseDate = realiseDate;
@@ -20,9 +21,12 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public void getInfo(){
+    public void getInfo() {
         String info = title + "; " + author + "; " + realiseDate + "; "
-                + page + "; " + publisher + "; " + isbn;
+                + page + "; " + publisher;
+        if (isbn != null) {
+            info = info + " "+  isbn;
+        }
         System.out.println(info);
     }
 
