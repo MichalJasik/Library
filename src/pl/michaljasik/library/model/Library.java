@@ -1,12 +1,12 @@
 package pl.michaljasik.library.model;
 
 public class Library {
-    private final int maxBooks =1000;
-    private Book[] books = new Book[maxBooks];
+    private static final int MAX_BOOKS =1000;
+    private Book[] books = new Book[MAX_BOOKS];
     private int currentIndexBook = 0;
 
     public void addBook(Book book){
-        if(currentIndexBook<maxBooks){ //sprawdzenie miejsca w tablicy
+        if(currentIndexBook< MAX_BOOKS){ //sprawdzenie miejsca w tablicy
             books[currentIndexBook] = book;
             currentIndexBook++;
         }else{

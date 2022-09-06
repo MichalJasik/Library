@@ -1,9 +1,9 @@
 package pl.michaljasik.library.app;
 
 public class LibraryApp {
+    private static final String APP_NAME = " Bibloteka v.0.10";
     public static void main(String[] args) {
-        final String appName="Bibloteka 0.9";
-        System.out.println(appName);
+        System.out.println(APP_NAME);
 
         LibraryControl lc = new LibraryControl();
         lc.loopControl();

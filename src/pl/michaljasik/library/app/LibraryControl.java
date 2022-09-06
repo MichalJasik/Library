@@ -5,9 +5,9 @@ import pl.michaljasik.library.model.Book;
 import pl.michaljasik.library.model.Library;
 
 public class LibraryControl {
-    private final int exit = 0;
-    private final int addBook = 1;
-    private final int printBook = 2;
+    private static final int EXIT = 0;
+    private static final int ADDBOOK = 1;
+    private static final int PRINTBOOK = 2;
     private DataReader dataReader = new DataReader();
     private Library library = new Library();
 
@@ -18,12 +18,12 @@ public class LibraryControl {
             printOptions();
             option = dataReader.getInt();
             switch (option) {
-                case addBook -> addBook();
-                case printBook -> printBooks();
-                case exit -> exit();
+                case ADDBOOK -> addBook();
+                case PRINTBOOK -> printBooks();
+                case EXIT -> exit();
                 default -> System.out.println("Nie ma takiej opcji");
             }
-        } while (option != exit);
+        } while (option != EXIT);
     }
 
     private void exit() {
@@ -42,8 +42,8 @@ public class LibraryControl {
 
     private void printOptions() {
         System.out.println("Wybierz Opcje: ");
-        System.out.println(exit + " Wyjscie z programu");
-        System.out.println(addBook + " Dodanie nowej ksiazki");
-        System.out.println(printBook + " Wyswietlenie dostepnych ksiazek");
+        System.out.println(EXIT + " Wyjscie z programu");
+        System.out.println(ADDBOOK + " Dodanie nowej ksiazki");
+        System.out.println(PRINTBOOK + " Wyswietlenie dostepnych ksiazek");
     }
 }
