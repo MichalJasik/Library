@@ -1,41 +1,27 @@
 package pl.michaljasik.library.model;
 
-public class Book {
-    private String title;
+public class Book extends Publication{
     private String author;
-    private int realiseDate;
     private int page;
-    private String publisher;
     private String isbn;
 
-    public Book(String title, String author, int realiseDate, int page, String publisher, String isbn) {
-        this(title, author, realiseDate, page, publisher);
+
+    public Book(String title, String author, int year, int page, String publisher, String isbn) {
+        this.setTitle(title);
+        this.setPublisher(publisher);
+        this.setYear(year);
+        this.author = author;
+        this.page = page;
         this.isbn = isbn;
     }
 
-    public Book(String title, String author, int realiseDate, int page, String publisher) {
-        this.title = title;
-        this.author = author;
-        this.realiseDate = realiseDate;
-        this.page = page;
-        this.publisher = publisher;
-    }
-
     public void getInfo() {
-        String info = title + "; " + author + "; " + realiseDate + "; "
-                + page + "; " + publisher;
+        String info = getTitle() + "; " + author + "; " + getYear() + "; "
+                + page + "; " + getPublisher();
         if (isbn != null) {
             info = info + " "+  isbn;
         }
         System.out.println(info);
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getAuthor() {
@@ -46,28 +32,12 @@ public class Book {
         this.author = author;
     }
 
-    public int getRealiseDate() {
-        return realiseDate;
-    }
-
-    public void setRealiseDate(int realiseDate) {
-        this.realiseDate = realiseDate;
-    }
-
     public int getPage() {
         return page;
     }
 
     public void setPage(int page) {
         this.page = page;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
     }
 
     public String getIsbn() {
