@@ -1,47 +1,54 @@
 package pl.michaljasik.library.model;
 
 public class Library {
-    private static final int MAX_BOOKS =1000;
-    private static final int MAX_MAGAZINE =1000;
-    private Book[] books = new Book[MAX_BOOKS];
-    private Magazine[] magazines = new Magazine[MAX_MAGAZINE];
-    private int currentIndexBook = 0;
-    private int currentIndexMagazine = 0;
+    private static final int MAX_PUBLICATIONS =1000;
+    private int publicationsIndexNumber = 0;
+    private  Publication[] publications = new Publication[MAX_PUBLICATIONS];
 
 
     public void addBook(Book book){
-        if(currentIndexBook< MAX_BOOKS){ //sprawdzenie miejsca w tablicy
-            books[currentIndexBook] = book;
-            currentIndexBook++;
+        if(publicationsIndexNumber< MAX_PUBLICATIONS){ //sprawdzenie miejsca w tablicy
+            publications[publicationsIndexNumber] = book;
+            publicationsIndexNumber++;
         }else{
             System.out.println("Wiecej ksiazek do bibloteki dodac nie mozna!");
         }
     }
 
+
     public void printBooks(){
-        if (currentIndexBook == 0) {
-            System.out.println("Brak ksiazek do wyswietlenia: ");
+        int countBooks = 0;
+        for (int i = 0; i < publicationsIndexNumber; i++) {
+            if (publications[i] instanceof Book) {
+                publications[i].getInfo();
+                countBooks++;
+            }
+
         }
-        for (int i = 0; i < currentIndexBook; i++) {
-            books[i].getInfo();
+        if (countBooks == 0) {
+            System.out.println("Brak ksiazek do wyswietlenia: ");
         }
     }
 
     public void addMagazine(Magazine magazine){
-        if(currentIndexMagazine< MAX_MAGAZINE){ //sprawdzenie miejsca w tablicy
-            magazines[currentIndexMagazine] = magazine;
-            currentIndexMagazine++;
+        if(publicationsIndexNumber< MAX_PUBLICATIONS){ //sprawdzenie miejsca w tablicy
+            publications[publicationsIndexNumber] = magazine;
+            publicationsIndexNumber++;
         }else{
             System.out.println("Wiecej magazynow do bibloteki dodac nie mozna!");
         }
     }
 
     public void printMagazine(){
-        if (currentIndexMagazine == 0) {
-            System.out.println("Brak magazynow do wyswietlenia: ");
+        int countMagazine=0;
+        for (int i = 0; i < publicationsIndexNumber; i++) {
+            if (publications[i] instanceof Magazine){
+                publications[i].getInfo();
+                countMagazine++;
+            }
         }
-        for (int i = 0; i < currentIndexMagazine; i++) {
-            magazines[i].printInfo();
+        if (countMagazine == 0) {
+            System.out.println("Brak magazynow do wyswietlenia: ");
         }
     }
 }

@@ -1,4 +1,4 @@
-package pl.michaljasik.library.app;
+package pl.michaljasik.library.model.app;
 
 import pl.michaljasik.library.io.DataReader;
 import pl.michaljasik.library.model.Book;
