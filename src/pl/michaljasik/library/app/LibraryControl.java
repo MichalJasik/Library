@@ -1,4 +1,4 @@
-package pl.michaljasik.library.model.app;
+package pl.michaljasik.library.app;
 
 import pl.michaljasik.library.io.DataReader;
 import pl.michaljasik.library.model.Book;
@@ -55,7 +55,7 @@ public class LibraryControl {
     }
 
     private void printOptions() {
-        System.out.println("Wybierz Opcje: ");
+        System.out.println("\nWybierz Opcje: ");
         System.out.println(EXIT + " Wyjscie z programu");
         System.out.println(ADDBOOK + " Dodanie nowej ksiazki");
         System.out.println(ADDMAGAZINE + " Dodanie nowego magazynu");

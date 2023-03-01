@@ -1,7 +1,10 @@
-package pl.michaljasik.library.model.app;
+package pl.michaljasik.library.app;
 
 public class LibraryApp {
-    private static final String APP_NAME = " Bibloteka v.0.12";
+
+
+    
+    private static final String APP_NAME = " Bibloteka v.0.13";
     public static void main(String[] args) {
         System.out.println(APP_NAME);
 

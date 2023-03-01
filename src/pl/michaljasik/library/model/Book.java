@@ -1,5 +1,7 @@
 package pl.michaljasik.library.model;
 
+import java.util.Objects;
+
 public class Book extends Publication{
     private String author;
     private int page;
@@ -14,13 +16,13 @@ public class Book extends Publication{
     }
 
     @Override
-    public void getInfo() {
-        String info = getTitle() + "; " + author + "; " + getYear() + "; "
-                + page + "; " + getPublisher();
-        if (isbn != null) {
-            info = info + " "+  isbn;
-        }
-        System.out.println(info);
+    public String toString() {
+        return super.toString() + "; " + author + "; " + page + "; " + isbn;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), author, page, isbn);
     }
 
     public String getAuthor() {
