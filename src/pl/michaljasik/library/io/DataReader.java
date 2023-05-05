@@ -7,20 +7,25 @@ import java.util.Scanner;
 
 public class DataReader {
     private Scanner sc = new Scanner(System.in);
+    private ConsolePrinter printer;
+
+    public DataReader(ConsolePrinter printer) {
+        this.printer = printer;
+    }
 
     public Book readAndCreateBook() {
-        System.out.println("Tytuł: ");
+        printer.printLine("Tytuł: ");
         String title = sc.nextLine();
-        System.out.println("Autor: ");
+        printer.printLine("Autor: ");
         String autor = sc.nextLine();
-        System.out.println("Wydawnictwo: ");
+        printer.printLine("Wydawnictwo: ");
         String publisher = sc.nextLine();
-        System.out.println("ISBN: ");
+        printer.printLine("ISBN: ");
         String isbn = sc.nextLine();
-        System.out.println("Rok wydania: ");
+        printer.printLine("Rok wydania: ");
         int realiseDate = sc.nextInt();
         sc.nextLine();
-        System.out.println("Liczba stron: ");
+        printer.printLine("Liczba stron: ");
         int pages = sc.nextInt();
         sc.nextLine();
 
@@ -28,17 +33,17 @@ public class DataReader {
     }
 
     public Magazine readAndCreateMagazie() {
-        System.out.println("Tytuł: ");
+        printer.printLine("Tytuł: ");
         String title = sc.nextLine();
-        System.out.println("Wydawnictwo: ");
+        printer.printLine("Wydawnictwo: ");
         String publisher = sc.nextLine();
-        System.out.println("Jezyk: ");
+        printer.printLine("Jezyk: ");
         String language = sc.nextLine();
-        System.out.println("rok: ");
+        printer.printLine("rok: ");
         int year = sc.nextInt();
-        System.out.println("miesiac: ");
+        printer.printLine("miesiac: ");
         int month = sc.nextInt();
-        System.out.println("dzien: ");
+        printer.printLine("dzien: ");
         int day = sc.nextInt();
         sc.nextLine();
 
@@ -49,9 +54,16 @@ public class DataReader {
         sc.close();
     }
 
+    // Jak ktos poda liczbe, zostanie ona zwrocona, a w bloku finally pozbywamy sie entera
+    // jeśli ktoś poda napis zamiast liczby zostanie rzucony wyjatek, blok finnaly i tak sie wykona
+    // a wyjatek bedziemy mogli przechwycic w miejscu gdzie sie metoda wywolala
     public int getInt() {
-        int number = sc.nextInt();
-        sc.nextLine();
-        return number;
+        try{
+            return sc.nextInt();
+        } finally {
+            sc.nextLine();
+        }
+
+
     }
 }

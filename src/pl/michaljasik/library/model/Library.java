@@ -7,50 +7,26 @@ public class Library {
 
 
     public void addBook(Book book){
-        if(publicationsIndexNumber< MAX_PUBLICATIONS){ //sprawdzenie miejsca w tablicy
-            publications[publicationsIndexNumber] = book;
-            publicationsIndexNumber++;
-        }else{
-            System.out.println("Wiecej ksiazek do bibloteki dodac nie mozna!");
-        }
-    }
-
-
-    public void printBooks(){
-        int countBooks = 0;
-        for (int i = 0; i < publicationsIndexNumber; i++) {
-            if (publications[i] instanceof Book) {
-                //publications[i].getInfo();
-                System.out.printf(publications[i].toString());
-                countBooks++;
-            }
-
-        }
-        if (countBooks == 0) {
-            System.out.println("Brak ksiazek do wyswietlenia: ");
-        }
+        addPublication(book);
     }
 
     public void addMagazine(Magazine magazine){
-        if(publicationsIndexNumber< MAX_PUBLICATIONS){ //sprawdzenie miejsca w tablicy
-            publications[publicationsIndexNumber] = magazine;
-            publicationsIndexNumber++;
-        }else{
-            System.out.println("Wiecej magazynow do bibloteki dodac nie mozna!");
-        }
+        addPublication(magazine);
     }
 
-    public void printMagazine(){
-        int countMagazine=0;
-        for (int i = 0; i < publicationsIndexNumber; i++) {
-            if (publications[i] instanceof Magazine){
-                //publications[i].getInfo();
-                System.out.printf(publications[i].toString());
-                countMagazine++;
-            }
+    private void addPublication(Publication publication){
+        if (publicationsIndexNumber>=MAX_PUBLICATIONS){
+            throw new ArrayIndexOutOfBoundsException("Max publication exit" + MAX_PUBLICATIONS);
         }
-        if (countMagazine == 0) {
-            System.out.println("Brak magazynow do wyswietlenia: ");
+        publications[publicationsIndexNumber] = publication;
+        publicationsIndexNumber++;
+    }
+
+    public Publication[] getPublications() {
+        Publication result[] = new Publication[publicationsIndexNumber];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = publications[i];
         }
+        return result;
     }
 }
